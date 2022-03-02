@@ -1,0 +1,31 @@
+.single-adventure-container {
+    @include flexboxGrid;
+    margin: 2em auto;
+
+    .single-adventure-hero-container {
+        position: relative;
+        @include flexboxGrid;
+        width: 50%;
+    
+        img {
+            display: block;
+        }
+    
+        .single-adventure-title-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: .25em 1em;
+            color: #fff;
+            background-color: #333;
+    
+            h1 {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .single-adventure-info-container {
+        width: 50%;
+    }
+}

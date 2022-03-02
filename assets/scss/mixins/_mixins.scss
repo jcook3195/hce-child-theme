@@ -1,0 +1,15 @@
+// vendor prefix mixin
+@mixin browserSupport($property, $style) {
+    -webkit-#{$property}: $style;
+    -moz-#{$property}: $style;
+    -o-#{$property}: $style;
+    #{$property}: $style;
+}
+
+// row with spaced out warpping columns mixin
+@mixin flexboxGrid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;    
+}

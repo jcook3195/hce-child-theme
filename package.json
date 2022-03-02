@@ -1,0 +1,23 @@
+{
+  "name": "hce-child",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "watch": "gulp sass:watch",
+    "build-js": "gulp buildJS",
+    "build-scss": "gulp buildScss"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "node-sass": "^7.0.1",
+    "sass": "^1.49.8",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-stream": "^7.0.0"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}
