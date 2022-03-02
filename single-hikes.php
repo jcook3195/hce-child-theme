@@ -11,6 +11,9 @@ $categories = get_categories( array(
     'order'   => 'ASC'
 ) );
 
+// get the tags for the post
+$tags = get_the_terms($post->ID, 'difficulty');
+
 // convert trail length in miles to km with 1 number after decimal
 $trail_length_km = round((get_field('trail_length') * 1.609344), 1);
 
@@ -110,11 +113,27 @@ if( $trail_type == 'out_and_back' ) {
             </div>
         </div>
         <div class="single-adventure-categories-container">
+            <h3 class="single-adventure-categories-title">Categories</h3>
             <?php                                
                 foreach( $categories as $category ) { ?>
                 <div class="single-category">
                     <?php
-                        echo '<p>' . $category->name . '</p>';
+                        if ($category->name != 'Uncategorized') {
+                            echo '<p>' . $category->name . '</p>';
+                        }                        
+                    ?>
+                </div>
+                <?php
+                } 
+            ?>
+        </div>
+        <div class="single-adventure-tags-container">
+            <h3 class="single-adventure-tags-title">Tags</h3>
+            <?php                                
+                foreach( $tags as $tag ) { ?>
+                <div class="single-tag">
+                    <?php
+                        echo '<p>' . $tag->name . '</p>';                       
                     ?>
                 </div>
                 <?php
