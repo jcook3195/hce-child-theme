@@ -32,19 +32,17 @@ if( $trail_type == 'out_and_back' ) {
 <div id="single-hikes-page" class="single-adventure-page">
     <div class="single-adventure-container">
         <div class="single-adventure-hero-container">
-            <?php the_post_thumbnail(); ?>
+            <div class="single-adventure-hero-image">
+                <?php the_post_thumbnail(); ?>
+            </div>            
             <div class="single-adventure-title-container">
                 <h1 class="single-adventure-title"><?php the_field( 'trail_name'); ?></h1>
+                <p class="single-adventure-location"><?php the_field('major_city_nearest_trail'); ?>, <?php the_field('trail_state'); ?></p>
+                <p class="single-adventure-length"><?php the_field('trail_length'); ?>mi (<?php echo $trail_length_km; ?>km)</p>
             </div>
         </div>
         <div class="single-adventure-info-container">
             <div class="single-adventure-misc-info">
-                <div class="single-misc-info">
-                    <p>Location: <?php the_field('major_city_nearest_trail'); ?>, <?php the_field('trail_state'); ?></p>
-                </div>
-                <div class="single-misc-info">
-                    <p>Trail Length: <?php the_field('trail_length'); ?>mi (<?php echo $trail_length_km; ?>km)</p>
-                </div>
                 <div class="single-misc-info">
                     <p>Trail Type: <?php echo $trail_type_pretty; ?></p>
                 </div>
@@ -54,12 +52,21 @@ if( $trail_type == 'out_and_back' ) {
                     <div class="single-adventure-rating-title">
                         <p class="rating-title">Overall</p>
                     </div>
-                    <div class="single-adventure-rating-bar">
+                    <!-- <div class="single-adventure-rating-bar">
                         <div class="single-adventure-rating-progress">                            
                             <div class="hidden-rating-progress-number"><?php the_field( 'trail_rating_overall' ); ?></div>
                         </div>
+                    </div> -->
+                    <div class="single-adventure-rating">
+                        <?php
+                            $oa_rating = get_field( 'trail_rating_overall' );
+                            for($i=1; $i < $oa_rating; $i++ ) { ?>
+                                <img src="<?php echo HCE_CHILD_THEME_URL . '/assets/icons/mtn-rating-icon.png'; ?>" alt="Mountain ratings icon">
+                        <?php
+                            }
+                        ?> 
                     </div>
-                    <div class="rating-descriptive-text">
+                    <div class="rating-descriptive-text">                         
                         <p></p>
                     </div>
                 </div>
@@ -68,10 +75,19 @@ if( $trail_type == 'out_and_back' ) {
                     <div class="single-adventure-rating-title">
                         <p class="rating-title">Difficulty</p>
                     </div>
-                    <div class="single-adventure-rating-bar">
+                    <!-- <div class="single-adventure-rating-bar">
                         <div class="single-adventure-rating-progress">                            
                             <div class="hidden-rating-progress-number"><?php the_field( 'trail_rating_difficulty' ); ?></div>
                         </div>
+                    </div> -->
+                    <div class="single-adventure-rating">
+                        <?php
+                            $dif_rating = get_field( 'trail_rating_difficulty' );
+                            for($i=1; $i < $dif_rating; $i++ ) { ?>
+                                <img src="<?php echo HCE_CHILD_THEME_URL . '/assets/icons/mtn-rating-icon.png'; ?>" alt="Mountain ratings icon">
+                        <?php
+                            }
+                        ?> 
                     </div>
                     <div class="rating-descriptive-text">
                         <p></p>
@@ -82,10 +98,19 @@ if( $trail_type == 'out_and_back' ) {
                     <div class="single-adventure-rating-title">
                         <p class="rating-title">Views</p>
                     </div>
-                    <div class="single-adventure-rating-bar">
+                    <!-- <div class="single-adventure-rating-bar">
                         <div class="single-adventure-rating-progress">                            
                             <div class="hidden-rating-progress-number"><?php the_field( 'trail_rating_views' ); ?></div>
                         </div>
+                    </div> -->
+                    <div class="single-adventure-rating">
+                        <?php
+                            $v_rating = get_field( 'trail_rating_views' );
+                            for($i=1; $i < $v_rating; $i++ ) { ?>
+                                <img src="<?php echo HCE_CHILD_THEME_URL . '/assets/icons/mtn-rating-icon.png'; ?>" alt="Mountain ratings icon">
+                        <?php
+                            }
+                        ?> 
                     </div>
                     <div class="rating-descriptive-text">
                         <p></p>
@@ -96,10 +121,19 @@ if( $trail_type == 'out_and_back' ) {
                     <div class="single-adventure-rating-title">
                         <p class="rating-title">Popularity</p>
                     </div>
-                    <div class="single-adventure-rating-bar">
+                    <!-- <div class="single-adventure-rating-bar">
                         <div class="single-adventure-rating-progress">                            
                             <div class="hidden-rating-progress-number"><?php the_field( 'trail_rating_popularity' ); ?></div>
                         </div>
+                    </div> -->
+                    <div class="single-adventure-rating">
+                        <?php
+                            $pop_rating = get_field( 'trail_rating_popularity' );
+                            for($i=1; $i < $pop_rating; $i++ ) { ?>
+                                <img src="<?php echo HCE_CHILD_THEME_URL . '/assets/icons/mtn-rating-icon.png'; ?>" alt="Mountain ratings icon">
+                        <?php
+                            }
+                        ?> 
                     </div>
                     <div class="rating-descriptive-text">
                         <p></p>

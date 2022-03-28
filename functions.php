@@ -68,4 +68,47 @@ add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mime
             }
             </style>';
     }
+
 add_action( 'admin_head', 'fix_svg' );
+
+// create query function to get all the posts of a certain type
+function get_all_posts_by_cpt($args = null) {
+    $default_args = array( 
+        'numberposts' => -1,
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'fields' => 'ids',
+    );
+
+    if (null !== $args && !empty($args))
+        $args = array_merge($default_args, $args);
+    else 
+        $args = $default_args;
+
+    return get_posts($args);
+}
+
+// add a function to dynamically create select choices for all of the hiking posts on the site
+function camp_hike_link_select_fields( $field ) {
+    // reset choices
+    $field['choices'] = array();
+    // get all the hiking posts
+    $hikes_ids = get_all_posts_by_cpt ( 
+        array(
+            'post_type' => 'hikes',
+            'order' => 'ASC',
+    ));
+
+    // loop through array and add to field 'hike_id'
+    if( is_array($hikes_ids) ) {
+        foreach( $hikes_ids as $hike_id ) {
+            // get the trail name field value by the post id
+            $trail_name = get_field('trail_name', $hike_id);
+            $field['choices'][ $hike_id ] = $trail_name;
+        }
+    }
+    // return the field
+    return $field;
+}
+
+add_filter('acf/load_field/name=site-hike_link', 'camp_hike_link_select_fields');
