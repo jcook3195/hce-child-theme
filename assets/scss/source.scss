@@ -1,0 +1,13 @@
+// mixins
+@import '../scss/mixins/mixins';
+
+// global
+@import "../scss/global/colors";
+@import "../scss/global/layout";
+
+// components
+@import "../scss/components/adventure-cards";
+@import "../scss/components/single-adventure";
+@import "../scss/components/link-card-block";
+@import "../scss/components/pagination";
+@import "../scss/components/bar-rating";

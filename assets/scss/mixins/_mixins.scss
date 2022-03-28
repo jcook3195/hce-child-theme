@@ -1,0 +1,31 @@
+// mobile only 
+
+// tablet and mobile 
+
+// tablet only 
+
+// tablet and desktop
+@mixin tablet-and-desktop {
+    @media only screen and (min-width: 768px) { @content; }
+}
+
+// desktop only
+@mixin desktop-only {
+    @media only screen and (min-width: 1120px) { @content; }
+}
+
+// vendor prefix 
+@mixin browserSupport($property, $style) {
+    -webkit-#{$property}: $style;
+    -moz-#{$property}: $style;
+    -o-#{$property}: $style;
+    #{$property}: $style;
+}
+
+// row with spaced out warpping columns 
+@mixin flexboxGrid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;    
+}
