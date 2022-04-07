@@ -28,24 +28,29 @@ get_header(); ?>
 
             while ( $loop->have_posts() ) : $loop-> the_post();
 
-            $post_id = get_the_ID();                    
+            $post_id = get_the_ID();
+
+            // get the campsite hike link field value and label
+            $site_hike_link = get_field_object( 'site-hike_link' );
+            $site_hike_link_value = $site_hike_link['value'];
+            $site_hike_link_label = $site_hike_link['choices'][ $site_hike_link_value ];
         ?>
 
         
         <div class="adventure-card-container">
             <a href="<?php the_permalink(); ?>" class="adventure-card-link">
-            <div class="adventure-card-image-container">
-                    <?php the_post_thumbnail(); ?>
-            </div>
+                <div class="adventure-card-image-container">
+                        <?php the_post_thumbnail(); ?>
+                </div>
                 <div class="adventure-card-title-container">
-                    <!-- <h3 class="adventure-card-title"><?php the_field( 'trail_name' ); ?></h3> -->
+                    <h3 class="adventure-card-title"><?php the_field( 'campsite_name' ); ?></h3>
                 </div>
                 <div class="adventure-card-info-container">
                     <div class="adventure-card-info">
-                        <!-- <p>Length: <?php the_field( 'trail_length' ); ?></p> -->
+                        <p><?php echo $site_hike_link_label ?></p>
                     </div>
                     <div class="adventure-card-info">
-                        <!-- <p>Rating: <?php the_field( 'trail_rating_overall' ); ?></p> -->
+                        <p>Rating: <?php the_field( 'rating_overall' ); ?></p>
                     </div>                                
                 </div>            
             </a>     

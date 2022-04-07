@@ -146,6 +146,23 @@ if( $trail_type == 'out_and_back' ) {
                 <?php the_field('trail_description'); ?>
             </div>
         </div>
+        <div class="single-adventure-map-container">
+            <?php the_field('alltrails_embed_code'); ?>
+        </div>
+        <div class="single-adventure-gallery-container">
+            <?php 
+                $images = get_field('photo_gallery');
+                $size = 'thumbnail'; // (thumbnail, medium, large, full or custom size)
+                if( $images ): ?>
+                    <ul>
+                        <?php foreach( $images as $image_id ): ?>
+                            <li>
+                                <?php echo wp_get_attachment_image( $image_id, $size ); ?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
+        </div>
         <div class="single-adventure-categories-container">
             <h3 class="single-adventure-categories-title">Categories</h3>
             <?php                                
