@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-// vendor prefix mixin
-=======
 // mobile only 
 
 // tablet and mobile 
@@ -18,7 +15,6 @@
 }
 
 // vendor prefix 
->>>>>>> new-branch
 @mixin browserSupport($property, $style) {
     -webkit-#{$property}: $style;
     -moz-#{$property}: $style;
@@ -26,11 +22,7 @@
     #{$property}: $style;
 }
 
-<<<<<<< HEAD
-// row with spaced out warpping columns mixin
-=======
 // row with spaced out warpping columns 
->>>>>>> new-branch
 @mixin flexboxGrid {
     display: flex;
     flex-wrap: wrap;

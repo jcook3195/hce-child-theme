@@ -1,19 +1,8 @@
 .single-adventure-container {
-<<<<<<< HEAD
-    @include flexboxGrid;
-=======
->>>>>>> new-branch
     margin: 2em auto;
 
     .single-adventure-hero-container {
         position: relative;
-<<<<<<< HEAD
-        @include flexboxGrid;
-        width: 50%;
-    
-        img {
-            display: block;
-=======
 
         .single-adventure-hero-image {
             filter: brightness(50%);
@@ -21,7 +10,6 @@
             img {
                 display: block;
             }
->>>>>>> new-branch
         }
     
         .single-adventure-title-container {
@@ -30,18 +18,6 @@
             left: 0;
             padding: .25em 1em;
             color: #fff;
-<<<<<<< HEAD
-            background-color: #333;
-    
-            h1 {
-                margin-bottom: 0;
-            }
-        }
-    }
-
-    .single-adventure-info-container {
-        width: 50%;
-=======
     
             h1 {
                 margin-bottom: 0;
@@ -72,6 +48,5 @@
         .single-adventure-info-container {
             width: 50%;
         }
->>>>>>> new-branch
     }
 }

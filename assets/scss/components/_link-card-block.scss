@@ -21,11 +21,7 @@
 }
 
 //DESKTOP VIEW
-<<<<<<< HEAD
-@media only screen and (min-width: 1120px) {
-=======
 @include desktop-only {
->>>>>>> new-branch
     .link-card-block-container {
         margin-bottom: 0;
     }
